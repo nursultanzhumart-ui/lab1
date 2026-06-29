@@ -1,0 +1,86 @@
+1. DNS Report
+Domain 1: google.com
+
+Command:
+
+dig google.com
+Record	Value
+A Record	142.250.190.14
+TTL	300 seconds
+Authoritative Nameservers	ns1.google.com, ns2.google.com, ns3.google.com, ns4.google.com
+
+Why this TTL?
+
+Google changes IP addresses frequently for load balancing and reliability, so a relatively short TTL (300 seconds) allows DNS records to update quickly.
+
+Domain 2: github.com
+
+Command:
+
+dig github.com
+Record	Value
+A Record	140.82.121.4
+TTL	60 seconds
+Authoritative Nameservers	dns1.p08.nsone.net, dns2.p08.nsone.net, dns3.p08.nsone.net, dns4.p08.nsone.net
+
+Why this TTL?
+
+GitHub uses a very short TTL to quickly redirect traffic during maintenance or heavy load.
+
+Domain 3: wikipedia.org
+
+Command:
+
+dig wikipedia.org
+Record	Value
+A Record	208.80.154.224
+TTL	600 seconds
+Authoritative Nameservers	ns0.wikimedia.org, ns1.wikimedia.org, ns2.wikimedia.org
+
+Why this TTL?
+
+A 10-minute TTL balances DNS efficiency with the ability to update records when necessary.
+
+2. curl Scavenger Hunt
+HTTP 200 OK
+
+Command:
+
+curl -I https://www.google.com
+
+Result:
+
+HTTP/2 200
+
+Status Code:
+
+200 OK
+HTTP 404 Not Found
+
+Command:
+
+curl -I https://www.google.com/thispagedoesnotexist
+
+Result:
+
+HTTP/2 404
+
+Status Code:
+
+404 Not Found
+
+3. Short Written Answer
+
+Website chosen:
+https://www.youtube.com
+
+Using the browser's Developer Tools → Network tab, I observed several requests besides the main HTML document:
+
+JavaScript file (.js)
+The browser downloaded JavaScript files that provide the website's functionality, including video playback, search, and user interface interactions.
+CSS stylesheet (.css)
+The browser requested CSS files to control the appearance, layout, fonts, and colors of the website.
+Image request (.jpg/.png/.webp)
+The browser downloaded images such as the YouTube logo, video thumbnails, and user profile icons to display visual content.
+
+These additional requests are necessary because modern websites consist of many resources besides the main HTML page.
