@@ -1,0 +1,168 @@
+/* 1. Глобальные настройки (box-sizing: border-box) */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Цветовая палитра: Primary (темно-синий) и Accent (красный) */
+:root {
+  --primary-color: #2c3e50;
+  --accent-color: #e74c3c;
+  --bg-color: #f4f7f6;
+  --text-color: #333333;
+}
+
+/* 3. Шрифт и rem-размеры */
+html {
+  font-size: 16px; /* Базовый размер */
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 1.25rem; /* 20px */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Header */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: white;
+}
+
+header p {
+  font-size: 1.125rem;
+  color: #ecf0f1;
+}
+
+/* 4. Flexbox Navbar (Навигация) */
+nav {
+  display: flex;
+  justify-content: space-evenly; /* Равномерное распределение пространства */
+  align-items: center;
+  margin: 1.25rem 0;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+}
+
+/* Секции */
+.section-block {
+  background-color: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+h2 {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  font-size: 1.75rem;
+}
+
+.profile-img {
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+  float: right;
+  margin-left: 1.25rem;
+}
+
+/* Обычные списки */
+.section-block ul:not(.hobbies-grid) {
+  padding-left: 1.5rem;
+}
+
+/* 5. Wrapping Card Grid (Flexbox) для Хобби */
+.hobbies-grid {
+  display: flex;
+  flex-wrap: wrap; /* Разрешаем перенос карточек на новую строку */
+  gap: 1.25rem; /* Отступ между карточками */
+  list-style: none; /* Убираем точки от обычного списка */
+  padding: 0;
+  margin: 1.25rem 0 0 0;
+}
+
+/* Карточка хобби */
+.hobbies-grid li {
+  flex-basis: calc(50% - 0.625rem); /* Ширина карточки (две в ряд) */
+  background-color: #ffffff;
+  padding: 1.25rem; /* Внутренний отступ карточки */
+  border-radius: 0.5rem; /* Закругленные углы */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тень */
+  border-left: 5px solid var(--accent-color);
+}
+
+.hobbies-grid li strong {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Таблица */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+th {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  color: #777;
+  font-size: 0.875rem;
+}
+
+/* Адаптивность для телефонов */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .hobbies-grid li {
+    flex-basis: 100%; /* На телефоне одна карточка в ряд */
+  }
+  .profile-img {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem auto;
+  }
+}
