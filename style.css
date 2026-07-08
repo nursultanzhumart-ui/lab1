@@ -1,0 +1,166 @@
+/* ===== Base Transitions for Smooth Dark Mode Switch ===== */
+body, 
+section, 
+.card, 
+.skill-item, 
+.form-control, 
+.navbar, 
+footer {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background-color: #1e1b3a !important;
+}
+
+/* ===== Hero Photo ===== */
+.hero-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ===== Projects Section ===== */
+.projects-section {
+    background-color: #f8fafc;
+}
+
+/* ===== Card Hover ===== */
+.card {
+    transition: transform 0.2s, background-color 0.3s, color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* ===== Section Title ===== */
+.section-title {
+    color: #1e1b3a;
+}
+
+/* ===== Skill Items ===== */
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1.25rem 1rem;
+    border-radius: 0.75rem;
+    background: #f8f7ff;
+    font-size: 0.875rem;
+    text-align: center;
+    min-width: 8rem;
+}
+
+.skill-icon {
+    font-size: 2rem;
+}
+
+/* ===== Contact Section ===== */
+.contact-section {
+    background-color: #f8fafc;
+}
+
+/* ===== Validation Styles (Lab 6 & 7) ===== */
+.form-control:not(:focus):not([aria-invalid="false"]):invalid {
+    border-color: #EF4444;
+}
+
+.form-control:not(:focus):valid {
+    border-color: #16A34A;
+}
+
+.form-control[aria-invalid="true"] {
+    border-color: #EF4444 !important;
+}
+
+.error-message {
+    color: #EF4444;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+.error-message[hidden] {
+    display: none;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background-color: #1e1b3a;
+}
+
+/* ==================== DARK MODE OVERRIDES ==================== */
+body.dark-mode {
+    background-color: #0f0f1a;
+    color: #f1f1f7;
+}
+
+body.dark-mode .text-muted,
+body.dark-mode .form-text {
+    color: #a0a0ba !important;
+}
+
+body.dark-mode .projects-section,
+body.dark-mode .contact-section {
+    background-color: #151526;
+}
+
+body.dark-mode .section-title {
+    color: #ffffff;
+}
+
+body.dark-mode .card {
+    background-color: #1d1d33;
+    color: #e2e2f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+body.dark-mode .card-title {
+    color: #ffffff;
+}
+
+body.dark-mode .skill-item {
+    background-color: #1d1d33;
+    color: #ffffff;
+}
+
+body.dark-mode .form-control {
+    background-color: #1d1d33;
+    border-color: #3b3b5c;
+    color: #ffffff;
+}
+
+body.dark-mode .form-control:focus {
+    background-color: #262642;
+    border-color: #7c3aed;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(124, 58, 237, 0.25);
+}
+
+body.dark-mode .btn-outline-primary {
+    color: #a78bfa;
+    border-color: #a78bfa;
+}
+
+body.dark-mode .btn-outline-primary:hover,
+body.dark-mode .btn-outline-primary:active {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+    color: #ffffff;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #7c3aed;
+    border-color: #7c3aed;
+}
+
+body.dark-mode .btn-primary:hover,
+body.dark-mode .btn-primary:focus {
+    background-color: #6d28d9;
+    border-color: #6d28d9;
+}

@@ -1,121 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zhumart Nursultan - My Portfolio</title>
-  
-  <!-- 1. Подключаем внешний CSS файл (как требовалось в задании) -->
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhumart Nursultan — Interactive Portfolio (Lab 7)</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Main Interactive Script with Defer -->
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-  <header>
-    <h1>Zhumart Nursultan</h1>
-    <p>My Personal Website</p>
-  </header>
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Zhumart N.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-section">Contact</a>
+                    </li>
+                    <li class="nav-item ms-md-3 mt-2 mt-md-0">
+                        <button id="theme-toggle" class="btn btn-outline-light btn-sm" aria-label="Toggle dark theme">
+                            🌙 Theme
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <nav>
-    <a href="#about">About Me</a>
-    <a href="#skills">Skills</a>
-    <a href="#hobbies">Hobbies</a>
-    <a href="#languages">Languages</a>
-  </nav>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-7">
+                <h1 class="fw-bold mb-3">Hi, I'm Zhumart Nursultan</h1>
+                <p class="lead text-muted hero-lead-text">I am 19 years old and I live in Almaty, Kazakhstan. I am a second year student at Narxoz University studying Digital Management and Design. I am passionate about creating clean and simple web pages.</p>
+            </div>
+            <div class="col-12 col-md-5 text-center mt-4 mt-md-0">
+                <img src="https://placehold.co/160x160/1e1b3a/white?text=ZN"
+                     alt="Zhumart Nursultan"
+                     class="hero-photo">
+            </div>
+        </div>
+    </section>
 
-  <div class="section-block" id="about">
-    <h2>About Me</h2>
-    <img src="https://placehold.co/150x150/2c3e50/white?text=ZN" alt="Zhumart Nursultan" width="150" height="150" class="profile-img">
-    <p>Hi, my name is <strong>Zhumart Nursultan</strong>. I am 19 years old. I live in Almaty, Kazakhstan.</p>
-    <p>I am a second year student at Narxoz University studying Digital Management and design.</p>
-    
-    <p><strong>Contact Info:</strong></p>
-    <ul>
-      <li>Email: <a href="mailto:zhumart.nursultan@narxoz.kz">zhumart.nursultan@narxoz.kz</a></li>
-      <li>Phone: +7 701 555 44 33</li>
-    </ul>
-    <div style="clear: both;"></div>
-  </div>
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section id="projects" class="projects-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center fw-bold mb-4">My Projects</h2>
+            
+            <!-- Category Filter Buttons -->
+            <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
+                <button class="btn btn-primary filter-btn active" data-category="all" aria-pressed="true">All</button>
+                <button class="btn btn-outline-primary filter-btn" data-category="html-css" aria-pressed="false">HTML/CSS</button>
+                <button class="btn btn-outline-primary filter-btn" data-category="javascript" aria-pressed="false">JavaScript</button>
+                <button class="btn btn-outline-primary filter-btn" data-category="css-grid" aria-pressed="false">CSS Grid</button>
+            </div>
 
-  <div class="section-block" id="skills">
-    <h2>Skills</h2>
-    <p>Here are some of the skills I am currently learning and developing:</p>
-    <ul>
-      <li><strong>Web Development:</strong> HTML5, CSS3, creating simple and responsive web pages.</li>
-      <li><strong>Design Tools:</strong> Basic knowledge of Figma and Adobe Photoshop.</li>
-      <li><strong>Languages:</strong> Kazakh (Native), Russian (Fluent), English (Intermediate).</li>
-      <li><strong>Soft Skills:</strong> Good teamwork, problem-solving, time management.</li>
-    </ul>
-  </div>
+            <!-- Projects Grid -->
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" id="projects-grid">
 
-  <div class="section-block" id="hobbies">
-    <h2>Hobbies & Interests</h2>
-    <p>When I am not studying, I enjoy spending my time on my hobbies:</p>
-    
-    <!-- 2. Сетка карточек для хобби (Flexbox Card Grid) -->
-    <ul class="hobbies-grid">
-      <li>
-        <strong>Sports</strong>
-        Playing football with friends and watching matches.
-      </li>
-      <li>
-        <strong>Video Games</strong>
-        I love playing story-driven games and online multiplayer games.
-      </li>
-      <li>
-        <strong>Music</strong>
-        Listening to hip-hop and pop music to relax and focus.
-      </li>
-      <li>
-        <strong>Reading</strong>
-        Reading sci-fi and self-development books in my free time.
-      </li>
-    </ul>
-  </div>
+                <!-- Card 1: Portfolio Website -->
+                <div class="col project-card" data-category="html-css">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://placehold.co/400x180/3b82f6/white?text=Portfolio+Website"
+                             class="card-img-top" alt="Portfolio Website"
+                             style="height:180px;object-fit:cover">
+                        <div class="card-body">
+                            <h5 class="card-title">Portfolio Website</h5>
+                            <p class="card-text text-muted">A personal portfolio website built with clean HTML and CSS to showcase projects and skills.</p>
+                            <span class="badge bg-primary text-white">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
 
-  <div class="section-block" id="languages">
-    <h2>Programming Languages</h2>
-    <p>Here is a table of some popular programming languages I know about.</p>
-    <table>
-      <thead>
-        <tr>
-          <th>Language Name</th>
-          <th>Release Year</th>
-          <th>Creator</th>
-          <th>Main Purpose</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>JavaScript</td>
-          <td>1995</td>
-          <td>Brendan Eich</td>
-          <td>Web Development</td>
-        </tr>
-        <tr>
-          <td>Python</td>
-          <td>1991</td>
-          <td>Guido van Rossum</td>
-          <td>Data Science, Web, AI</td>
-        </tr>
-        <tr>
-          <td>Java</td>
-          <td>1995</td>
-          <td>James Gosling</td>
-          <td>Enterprise, Android</td>
-        </tr>
-        <tr>
-          <td>C++</td>
-          <td>1985</td>
-          <td>Bjarne Stroustrup</td>
-          <td>Systems, Game Engines</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+                <!-- Card 2: Simple Calculator -->
+                <div class="col project-card" data-category="javascript">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://placehold.co/400x180/10b981/white?text=Simple+Calculator"
+                             class="card-img-top" alt="Simple Calculator"
+                             style="height:180px;object-fit:cover">
+                        <div class="card-body">
+                            <h5 class="card-title">Simple Calculator</h5>
+                            <p class="card-text text-muted">An interactive calculator application built with vanilla JavaScript for basic arithmetic operations.</p>
+                            <span class="badge bg-success text-white">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
 
-  <footer>
-    <p>&copy; 2026 Zhumart Nursultan | Narxoz University</p>
-  </footer>
+                <!-- Card 3: Landing Page -->
+                <div class="col project-card" data-category="html-css">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://placehold.co/400x180/f59e0b/white?text=Landing+Page"
+                             class="card-img-top" alt="Landing Page"
+                             style="height:180px;object-fit:cover">
+                        <div class="card-body">
+                            <h5 class="card-title">Landing Page</h5>
+                            <p class="card-text text-muted">A modern responsive landing page designed with HTML and CSS featuring a hero section and call-to-action.</p>
+                            <span class="badge bg-primary text-white">HTML/CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: To-Do List App -->
+                <div class="col project-card" data-category="javascript">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://placehold.co/400x180/ef4444/white?text=To-Do+List+App"
+                             class="card-img-top" alt="To-Do List App"
+                             style="height:180px;object-fit:cover">
+                        <div class="card-body">
+                            <h5 class="card-title">To-Do List App</h5>
+                            <p class="card-text text-muted">A task management application with add, delete, and complete functionality using JavaScript.</p>
+                            <span class="badge bg-success text-white">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Quiz Game -->
+                <div class="col project-card" data-category="javascript">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://placehold.co/400x180/8b5cf6/white?text=Quiz+Game"
+                             class="card-img-top" alt="Quiz Game"
+                             style="height:180px;object-fit:cover">
+                        <div class="card-body">
+                            <h5 class="card-title">Quiz Game</h5>
+                            <p class="card-text text-muted">An interactive quiz game with multiple-choice questions, scoring, and timer built with HTML, CSS, and JS.</p>
+                            <span class="badge bg-success text-white">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Blog Layout -->
+                <div class="col project-card" data-category="css-grid">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="https://placehold.co/400x180/ec4899/white?text=Blog+Layout"
+                             class="card-img-top" alt="Blog Layout"
+                             style="height:180px;object-fit:cover">
+                        <div class="card-body">
+                            <h5 class="card-title">Blog Layout</h5>
+                            <p class="card-text text-muted">A clean blog page layout built using CSS Grid for a structured and readable content presentation.</p>
+                            <span class="badge bg-info text-dark">CSS Grid</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center fw-bold mb-4">My Skills</h2>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <div class="skill-item">
+                    <span class="skill-icon">🌐</span>
+                    HTML5
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🎨</span>
+                    CSS3
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">⚡</span>
+                    JavaScript
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🖌️</span>
+                    Figma
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📷</span>
+                    Photoshop
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">💻</span>
+                    VS Code
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🐙</span>
+                    GitHub
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📱</span>
+                    Responsive
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section id="contact-section" class="contact-section py-5">
+        <div class="container">
+            <h2 class="section-title text-center fw-bold mb-4">Contact Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <form id="contact-form" method="POST" action="#" enctype="application/x-www-form-urlencoded" novalidate>
+                        
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name <span aria-hidden="true">*</span></label>
+                            <input id="name" name="name" type="text" class="form-control" required minlength="2" aria-required="true" aria-invalid="false" aria-describedby="name-hint name-error">
+                            <div id="name-hint" class="form-text">At least 2 characters.</div>
+                            <span id="name-error" class="error-message" role="alert" hidden>Please enter your name (at least 2 characters).</span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address <span aria-hidden="true">*</span></label>
+                            <input id="email" name="email" type="email" class="form-control" required aria-required="true" aria-invalid="false" aria-describedby="email-hint email-error">
+                            <div id="email-hint" class="form-text">We'll never share your email with anyone else.</div>
+                            <span id="email-error" class="error-message" role="alert" hidden>Please enter a valid email address.</span>
+                        </div>
+
+                        <!-- Subject -->
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject <span aria-hidden="true">*</span></label>
+                            <input id="subject" name="subject" type="text" class="form-control" required maxlength="120" aria-required="true" aria-invalid="false" aria-describedby="subject-hint subject-error">
+                            <div id="subject-hint" class="form-text">Maximum 120 characters.</div>
+                            <span id="subject-error" class="error-message" role="alert" hidden>Please enter a subject.</span>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <label for="message" class="form-label mb-0">Message <span aria-hidden="true">*</span></label>
+                                <span id="char-counter" class="text-muted small" aria-live="polite">0/1000</span>
+                            </div>
+                            <textarea id="message" name="message" rows="5" class="form-control mt-1" required minlength="10" maxlength="1000" aria-required="true" aria-invalid="false" aria-describedby="message-hint message-error char-counter"></textarea>
+                            <div id="message-hint" class="form-text">Between 10 and 1000 characters.</div>
+                            <span id="message-error" class="error-message" role="alert" hidden>Please enter your message (at least 10 characters).</span>
+                        </div>
+
+                        <!-- Submit Button with Spinner -->
+                        <button type="submit" id="submit-btn" class="btn btn-primary w-100 py-2">
+                            <span id="btn-text">Send Message</span>
+                            <div id="btn-spinner" class="spinner-border spinner-border-sm ms-2" role="status" hidden>
+                                <span class="visually-hidden">Sending...</span>
+                            </div>
+                        </button>
+                    </form>
+
+                    <!-- Success Alert -->
+                    <div id="form-success" class="alert alert-success mt-3" role="alert" hidden>
+                        ✅ Your message has been sent successfully! Thank you.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="site-footer text-center text-white py-4">
+        <p class="mb-1 fw-semibold">Zhumart Nursultan</p>
+        <p class="mb-0 small">&copy; 2026 All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
